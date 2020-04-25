@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../component/Header';
 import TipList from '../component/TipList';
+import BottomButtons from '../component/BottomButtons';
 
 import { withStyles } from '@material-ui/styles';
 
@@ -25,6 +26,7 @@ const App = ({ classes }: any) => (
     <div className={classes.list}>
       <TipList tips={tips}/>
     </div>
+    <BottomButtons />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import TipList from './';
 
