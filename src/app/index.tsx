@@ -6,6 +6,7 @@ import Drawer from '../component/Drawer';
 import TipEditor from '../component/TipEditor';
 
 import { withStyles } from '@material-ui/styles';
+import withState from '../reducer';
 
 const tips = [
   {
@@ -40,27 +41,22 @@ const tagsMock:Record<string, string> = {
   '3': 'Arma',
 }
 
-const modalProps = {
-  open: false,
-  onClose: () => null,
-  places: placesMock,
-  tags: tagsMock,
-  newTip: {
-    place: '',
-    tag: '',
-    text: '',
-  }
-}
+
+const TipElement = withState('tip', ({ tip, actions }: any) => {
+  return (
+    <>
+      <TipEditor {...tip.modal} onClose={actions.toggleModal} />
+      <TipList tips={Object.values(tip.tips)}/>
+      <BottomButtons actions={actions} />
+    </>
+  )
+})
 
 const App = ({ classes }: any) => (
   <div className={classes.root}>
     <Drawer {...drawerProps} />
-    <TipEditor {...modalProps} />
     <Header />
-    <div className={classes.list}>
-      <TipList tips={tips}/>
-    </div>
-    <BottomButtons />
+    <TipElement />
   </div>
 );
 

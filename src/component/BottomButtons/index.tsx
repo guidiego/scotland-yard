@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/styles';
 
 type Props = {
     classes?: any;
+    actions: any;
     hasSelectedItems?: boolean
 }
 
@@ -28,6 +29,7 @@ const styles = withStyles((theme) => ({
 
 export const BottomButtons = ({
     classes = {},
+    actions={},
     hasSelectedItems = false,
 }: Props) => (
     <div className={classes.root}>
@@ -45,7 +47,7 @@ export const BottomButtons = ({
                     </Fab>
                 </>
             ) : (
-                <Fab color="primary" aria-label="add">
+                <Fab color="primary" aria-label="add" onClick={actions.toggleModal}>
                     <AddIcon />
                 </Fab>
             )
