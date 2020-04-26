@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { SAVE_TIP, TOGGLE_MODAL } from './constants';
+import { Reducer } from 'react';
 
 type State = {
     tips: Record<string, Tip>;
@@ -18,7 +19,7 @@ const emptyTip = {
     place: '',
 };
 
-export const initialState = {
+export const initialState:any = {
     tips: {},
     selected: [],
     modal: {
@@ -27,7 +28,7 @@ export const initialState = {
     },
 }
 
-export const reducerFn = (state: State, { type, payload }: ReducerAction<Payload>) => {
+export const reducerFn: Reducer<any, any> = (state: State, { type, payload }: ReducerAction<Payload>) => {
     switch(type) {
         case SAVE_TIP:
             const tipId = payload?.id || uuid();
@@ -42,4 +43,4 @@ export const reducerFn = (state: State, { type, payload }: ReducerAction<Payload
     }
 }
 
-export const tipReducerOpts = [reducerFn, initialState];
+export const tipReducerOpts:[Reducer<any, any>, any] = [reducerFn, initialState];
