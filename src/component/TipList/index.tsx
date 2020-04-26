@@ -42,7 +42,7 @@ export const TipList = ({
                     <ListItemIcon>
                         <Checkbox
                             edge="start"
-                            checked={selected.indexOf(tip.id) !== -1}
+                            checked={selected.indexOf(tip.id || '') !== -1}
                             tabIndex={-1}
                             disableRipple
                             inputProps={{ 'aria-labelledby': `tip-list-item${tip.id}` }}

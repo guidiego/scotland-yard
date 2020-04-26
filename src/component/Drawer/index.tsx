@@ -6,7 +6,7 @@ type Props = {
     open: boolean;
     children?: ReactNode | null,
     classes?: any;
-    onClose: () => void;
+    onClose: () => any;
 };
 
 const styles = withStyles((theme) => ({
