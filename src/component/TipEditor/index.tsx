@@ -17,7 +17,7 @@ type Props = {
     classes?: any;
     places: Record<string, string>;
     tags: Record<string, string>;
-    newTip: Tip;
+    tipData: Tip;
 }
 
 const styles = withStyles((theme) => ({
@@ -32,7 +32,7 @@ const styles = withStyles((theme) => ({
 export const TipEditor = ({
     open,
     onClose,
-    newTip,
+    tipData,
     classes = {},
     tags = {},
     places = {},
@@ -50,7 +50,7 @@ export const TipEditor = ({
                 <Select
                     labelId="place-select-label"
                     id="place-select"
-                    value={newTip.place}
+                    value={tipData.place}
                     onChange={() => false}
                     fullWidth
                     variant="filled"
@@ -67,7 +67,7 @@ export const TipEditor = ({
                 <Select
                     labelId="tag-select-label"
                     id="tag-select"
-                    value={newTip.tag}
+                    value={tipData.tag}
                     onChange={() => false}
                     fullWidth
                     variant="filled"
@@ -87,7 +87,7 @@ export const TipEditor = ({
                 className={classes.formControl}
                 id="tip-text"
                 label="Dica"
-                value={newTip.text}
+                value={tipData.text}
             />
         </DialogContent>
         <DialogActions>

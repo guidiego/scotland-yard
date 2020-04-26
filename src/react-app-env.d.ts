@@ -6,3 +6,10 @@ declare type Tip = {
     place: string;
     text: string;
 }
+
+declare type ReducerAction<Payload> = {
+    type: string;
+    payload?: Payload;
+}
+
+declare type NotRequired<T> = T | undefined;
