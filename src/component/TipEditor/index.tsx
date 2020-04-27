@@ -21,84 +21,97 @@ type Props = {
 }
 
 const styles = withStyles((theme) => ({
-    formControl: {
-        display: 'block',
-        width: '300px',
-        marginBottom: theme.spacing(2),
-    }
+  formControl: {
+    display: 'block',
+    width: '300px',
+    marginBottom: theme.spacing(2),
+  }
 }));
 
 
 export const TipEditor = ({
-    open,
-    onClose,
-    tipData,
-    classes = {},
-    tags = {},
-    places = {},
+  open,
+  onClose,
+  tipData,
+  classes = {},
+  tags = {},
+  places = {},
 }: Props) =>  (
-    <Dialog
-        open={open}
-        onClose={onClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-    >
-        <DialogTitle id="alert-dialog-title">Nova Dica</DialogTitle>
-        <DialogContent>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="place-select-label">Lugar</InputLabel>
-                <Select
-                    labelId="place-select-label"
-                    id="place-select"
-                    value={tipData.place}
-                    onChange={() => false}
-                    fullWidth
-                    variant="filled"
-                >
-                    {
-                        Object.keys(places).map((id) => (
-                            <MenuItem key={id} value={id}>{places[id]}</MenuItem>
-                        ))
-                    }
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="tag-select-label">Questão</InputLabel>
-                <Select
-                    labelId="tag-select-label"
-                    id="tag-select"
-                    value={tipData.tag}
-                    onChange={() => false}
-                    fullWidth
-                    variant="filled"
-                >
-                    {
-                        Object.keys(tags).map((id) => (
-                            <MenuItem key={id} value={id}>{tags[id]}</MenuItem>
-                        ))
-                    }
-                </Select>
-            </FormControl>
-            <TextField
-                variant="filled"
-                multiline
-                rows={4}
-                fullWidth
-                className={classes.formControl}
-                id="tip-text"
-                label="Dica"
-                value={tipData.text}
-            />
-        </DialogContent>
-        <DialogActions>
-            <Button onClick={onClose} color="primary">
+  <Dialog
+    aria-describedby="alert-dialog-description"
+    aria-labelledby="alert-dialog-title"
+    onClose={onClose}
+    open={open}
+  >
+    <DialogTitle id="alert-dialog-title">Nova Dica</DialogTitle>
+    <DialogContent>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="place-select-label">Lugar</InputLabel>
+        <Select
+          fullWidth
+          id="place-select"
+          labelId="place-select-label"
+          onChange={() => false}
+          value={tipData.place}
+          variant="filled"
+        >
+          {
+            Object.keys(places).map((id) => (
+              <MenuItem
+                key={id}
+                value={id}
+              >{places[id]}</MenuItem>
+            ))
+          }
+        </Select>
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="tag-select-label">Questão</InputLabel>
+        <Select
+          fullWidth
+          id="tag-select"
+          labelId="tag-select-label"
+          onChange={() => false}
+          value={tipData.tag}
+          variant="filled"
+        >
+          {
+            Object.keys(tags).map((id) => (
+              <MenuItem
+                key={id}
+                value={id}
+              >{tags[id]}</MenuItem>
+            ))
+          }
+        </Select>
+      </FormControl>
+      <TextField
+        className={classes.formControl}
+        fullWidth
+        id="tip-text"
+        label="Dica"
+        multiline
+        rows={4}
+        value={tipData.text}
+        variant="filled"
+      />
+    </DialogContent>
+    <DialogActions>
+      <Button
+        color="primary"
+        onClick={onClose}
+      >
                 Fechar
-            </Button>
-            <Button onClick={onClose} color="primary" autoFocus>
+      </Button>
+      <Button
+        autoFocus
+        color="primary"
+        onClick={onClose}
+      >
                 Salvar
-            </Button>
-        </DialogActions>
-    </Dialog>
+      </Button>
+    </DialogActions>
+  </Dialog>
 );
 
 export default styles(TipEditor);

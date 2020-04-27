@@ -27,13 +27,26 @@ export const Header = () => {
     <header className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            className={classes.title}
+            variant="h6"
+          >
             Scotland Yard
           </Typography>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            aria-label="menu"
+            className={classes.menuButton}
+            color="inherit"
+            edge="start"
+          >
             <AssignmentOutlinedIcon />
           </IconButton>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            aria-label="menu"
+            className={classes.menuButton}
+            color="inherit"
+            edge="start"
+          >
             <MenuIcon />
           </IconButton>
         </Toolbar>

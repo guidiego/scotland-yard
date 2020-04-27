@@ -10,49 +10,62 @@ import { withStyles } from '@material-ui/styles';
 type Props = {
     classes?: any;
     actions: any;
-    hasSelectedItems?: boolean
+    hasSelectedItems?: boolean;
 }
 
 const styles = withStyles((theme) => ({
-    root: {
-        position: 'absolute',
-        bottom: theme.spacing(2),
-        right: theme.spacing(2),
-        maxWidth: '60px',
-        display: 'flex',
-        flexDirection: 'column',
-        '& > *' : {
-            marginTop: theme.spacing(2)
-        }
-    },
+  root: {
+    position: 'absolute',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+    maxWidth: '60px',
+    display: 'flex',
+    flexDirection: 'column',
+    '& > *' : {
+      marginTop: theme.spacing(2)
+    }
+  },
 }));
 
 export const BottomButtons = ({
-    classes = {},
-    actions={},
-    hasSelectedItems = false,
+  classes = {},
+  actions={},
+  hasSelectedItems = false,
 }: Props) => (
-    <div className={classes.root}>
-        {
-            hasSelectedItems ? (
-                <>
-                    <Fab color="default" aria-label="favorite">
-                        <FavoriteIcon />
-                    </Fab>
-                    <Fab color="secondary" aria-label="delete">
-                        <DeleteIcon />
-                    </Fab>
-                    <Fab color="primary" aria-label="edit">
-                        <EditIcon />
-                    </Fab>
-                </>
-            ) : (
-                <Fab color="primary" aria-label="add" onClick={actions.toggleModal}>
-                    <AddIcon />
-                </Fab>
-            )
-        }
-    </div>
+  <div className={classes.root}>
+    {
+      hasSelectedItems ? (
+        <>
+          <Fab
+            aria-label="favorite"
+            color="default"
+          >
+            <FavoriteIcon />
+          </Fab>
+          <Fab
+            aria-label="delete"
+            color="secondary"
+          >
+            <DeleteIcon />
+          </Fab>
+          <Fab
+            aria-label="edit"
+            color="primary"
+          >
+            <EditIcon />
+          </Fab>
+        </>
+      ) : (
+        <Fab
+          aria-label="add"
+          color="primary"
+          onClick={actions.toggleModal}
+        >
+          <AddIcon />
+        </Fab>
+      )
+    }
+  </div>
 );
 
 export default styles(BottomButtons);
