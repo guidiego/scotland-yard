@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import FavoriteIcon from '@material-ui/icons/Star';
@@ -8,8 +8,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import { withStyles } from '@material-ui/styles';
 
 type Props = {
-    classes?: any;
-    actions: any;
+    classes?: AnyObject;
+    actions: AnyObject;
     hasSelectedItems?: boolean;
 }
 
@@ -31,7 +31,7 @@ export const BottomButtons = ({
   classes = {},
   actions={},
   hasSelectedItems = false,
-}: Props) => (
+}: Props): ReactElement => (
   <div className={classes.root}>
     {
       hasSelectedItems ? (

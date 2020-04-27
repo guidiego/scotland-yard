@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,10 +13,10 @@ import { withStyles } from '@material-ui/styles';
 
 type Props = {
     open: boolean;
-    onClose: () => any;
-    classes?: any;
-    places: Record<string, string>;
-    tags: Record<string, string>;
+    onClose: AnyFunction;
+    classes?: AnyObject;
+    places: AnyObject<string, string>;
+    tags: AnyObject<string, string>;
     tipData: Tip;
 }
 
@@ -36,7 +36,7 @@ export const TipEditor = ({
   classes = {},
   tags = {},
   places = {},
-}: Props) =>  (
+}: Props): ReactElement =>  (
   <Dialog
     aria-describedby="alert-dialog-description"
     aria-labelledby="alert-dialog-title"
@@ -101,14 +101,14 @@ export const TipEditor = ({
         color="primary"
         onClick={onClose}
       >
-                Fechar
+        Fechar
       </Button>
       <Button
         autoFocus
         color="primary"
         onClick={onClose}
       >
-                Salvar
+        Salvar
       </Button>
     </DialogActions>
   </Dialog>

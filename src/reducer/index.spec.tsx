@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Reducer } from 'react';
 import { mount } from 'enzyme';
 
@@ -19,7 +20,7 @@ describe('reducer/hoc', () => {
     } as AvailableStates;
 
     const fakeActionParam = 'fizzfuzz';
-    const TestComponent = ({ foo, actions }: any) => {
+    const TestComponent = ({ foo, actions }: any): null => {
       expect(foo).toBe(fakeProps);
       actions.fizz(fakeActionParam);
       return null;

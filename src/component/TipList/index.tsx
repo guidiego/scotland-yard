@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -29,8 +29,8 @@ const styles = withStyles((theme) => ({
 type Props = {
     tips: Tip[];
     selected?: string[];
-    handleSelection?: () => void;
-    classes: any;
+    handleSelection?: AnyFunction;
+    classes: AnyObject;
 }
 
 export const TipList = ({
@@ -38,7 +38,7 @@ export const TipList = ({
   handleSelection,
   selected = [],
   classes = {},
-}: Props) => tips.length === 0 ? (
+}: Props): ReactElement => tips.length === 0 ? (
   <Card className={classes.card}>
     <CardHeader
       subheader="Clique no botão + para adicionar uma nova"

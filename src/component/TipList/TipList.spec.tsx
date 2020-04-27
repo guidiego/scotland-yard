@@ -13,10 +13,12 @@ describe('component/TipList', () => {
   it('Check list with items', () => {
     const clickSpec = jest.fn();
     const tip = { id: 'foo', place: 'bar', tag: 'fizz', text: 'fuzz'}
-    const wrap = mount(<TipList
-      handleSelection={clickSpec}
-      tips={[tip]}
-    />);
+    const wrap = mount(
+      <TipList
+        handleSelection={clickSpec}
+        tips={[tip]}
+      />
+    );
 
     wrap.find(ListItem).simulate('click');
     expect(clickSpec).toHaveBeenCalledTimes(1);

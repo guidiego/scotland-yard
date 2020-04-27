@@ -5,8 +5,8 @@ import { withStyles } from '@material-ui/styles';
 type Props = {
     open: boolean;
     children?: ReactNode | null;
-    classes?: any;
-    onClose: () => any;
+    classes?: AnyObject;
+    onClose: AnyFunction;
 };
 
 const styles = withStyles((theme) => ({
@@ -20,7 +20,7 @@ export const Drawer = ({
   classes = {},
   children = null,
   ...drawerProps
-}: Props) => (
+}: Props): ReactElement => (
   <DrawerMui
     anchor="right"
     {...drawerProps}
